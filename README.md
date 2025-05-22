@@ -160,5 +160,11 @@ Inicializa la app con:
 - El `alert()` es simple para cumplir la funcionalidad básica. Se puede reemplazar por `ion-alert` para una mejor experiencia visual.
 
 ---
+
+## 🤖 APK del proyecto
+
+https://github.com/RichardSoria/AppRickMorty/blob/master/AppRickandMorty.apk
+
+---
 ## 🧑‍💻 Autor
 Desarrollado por Richard Mauricio Soria Asanza
