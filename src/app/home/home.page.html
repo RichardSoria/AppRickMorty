@@ -1,20 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Pocket Rick and Morty
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="ion-padding">
+    <ion-row class="ion-align-items-center">
+      <ion-col size="9">
+        <ion-input [(ngModel)]="nameFind" label="Buscar personaje de Rick y Morty por nombre" label-placement="floating"
+          fill="outline" placeholder="Rick Sanchez">
+        </ion-input>
+      </ion-col>
+      <ion-col size="3">
+        <ion-button expand="block" (click)="findCharacter()">
+          Buscar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card *ngIf="characterDetails" class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>{{ characterDetails.name }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <img [src]="characterDetails.image" alt="Imagen de {{ characterDetails.name }}">
+      <p><strong>Especie:</strong> {{ characterDetails.species }}</p>
+      <p><strong>Estado:</strong> {{ characterDetails.status }}</p>
+      <p><strong>Género:</strong> {{ characterDetails.gender }}</p>
+      <p><strong>Origen:</strong> {{ characterDetails.origin?.name }}</p>
+      <p><strong>Ubicación actual:</strong> {{ characterDetails.location?.name }}</p>
+      <p><strong>Episodios donde aparece:</strong> {{ characterDetails.episode?.length }}</p>
+      <p><strong>Url del personaje:</strong>{{ characterDetails.url }}</p>
+      <ion-textarea [(ngModel)]="opinion" label="Escribe tu opinión" label-placement="floating" fill="outline"
+        placeholder="Ej: Me gusta mucho este personaje">
+      </ion-textarea>
+
+      <ion-button expand="block" (click)="saveOpinion()">
+        Guardar opinión
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
